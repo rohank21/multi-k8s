@@ -12,7 +12,7 @@ after_success:
   - docker build -t rkulkarni21k/multi-client ./client
   - docker build -t rkulkarni21k/multi-nginx ./nginx
   - docker build -t rkulkarni21k/multi-server ./server
-  - docker build -t rkulkarni21k/multi-worker ./worker
+  - docker build -t rkulkarni21k/multi-worker ./Worker
   
   #login into Docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
