@@ -3,22 +3,22 @@ services:
   - docker
 
 before_install:
-  - docker build -t rohank21/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t rkulkarni21k/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true rohank21/react-test npm test -- --coverage
+  - docker run -e CI=true rkulkarni21k/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t rohank21/multi-client ./client
-  - docker build -t rohank21/multi-nginx ./nginx
-  - docker build -t rohank21/multi-server ./server
-  - docker build -t rohank21/multi-worker ./worker
+  - docker build -t rkulkarni21k/multi-client ./client
+  - docker build -t rkulkarni21k/multi-nginx ./nginx
+  - docker build -t rkulkarni21k/multi-server ./server
+  - docker build -t rkulkarni21k/multi-worker ./worker
   
   #login into Docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   #Push images to docker hub
-  - docker push rohank21/multi-client
-  - docker push rohank21/multi-nginx
-  - docker push rohank21/multi-server
-  - docker push rohank21/multi-worker
+  - docker push rkulkarni21k/multi-client
+  - docker push rkulkarni21k/multi-nginx
+  - docker push rkulkarni21k/multi-server
+  - docker push rkulkarni21k/multi-worker
